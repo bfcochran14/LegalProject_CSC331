@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<!-- {{ title }} tells HJS to use variable title when
+  		rendering this page -->
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<h1>{{ title }}</h1>
+
+  	<!-- This can be turned into a menu easily -->
+  	<ul>
+  		<li> Home </li>
+  		<li> <a href="/users/addcharacter">Add Name</a> </li>
+      <li> <a href="/survey/surveypage">Survey</a></li>
+  	</ul>
+    <p></p>
+  </body>
+</html>

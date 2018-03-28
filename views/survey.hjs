@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<!-- {{ title }} tells HJS to use variable title when
+  		rendering this page -->
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.0.14/survey.css" type="text/css" rel="stylesheet" />
+    <script src="https://surveyjs.azureedge.net/1.0.14/survey.jquery.min.js"></script>
+  </head>
+  <body>
+  	<div id="surveyContainer"></div>
+  </body>
+  <script>
+
+
+    // variable names are "question#"
+  var surveyJSON = {pages:[{name:"Background",elements:[
+    {type:"text",name:"question2",title:"Last Name",isRequired:true},
+    {type:"text",name:"question1",title:"First name",isRequired:true},
+    {type:"text",name:"question3",title:"Email address",isRequired:true}]},
+
+    //*** May need to change the following name ***//
+    {name:"Disclosing Party Information",elements:[
+    {type:"text",name:"question5",title:"Disclosing Parties Name",isRequired:true},
+    {type:"radiogroup",name:"question4",title:"What type of Legal Entity is the Disclosing Party?",isRequired:true,choices:[
+        {value:"item1",text:"An individual"},
+        {value:"item2",text:"A limited liability company"},{value:"item3",text:"A corperation"},
+        {value:"item4",text:"A partnership"},{value:"item5",text:"A sole proprietorship "},
+        {value:"item6",text:"Another type od company not listed above"}]},
+    {type:"text",name:"question6",title:"In what state is the Disclosing party a resident?",isRequired:true},
+    {type:"dropdown",name:"question7",title:"Are you registered?",choices:[{value:"item1",text:"Yes"},
+    {value:"item2",text:"No"}]},
+    {type:"text",name:"question8",visible:false,visibleIf:"{question7}=item1",title:"What state?",isRequired:true}]}],
+    showProgressBar:"bottom"}
+
+  function sendDataToServer(survey) {
+      //send Ajax request to your web server.
+      //alert("The results are:" + JSON.stringify(survey.data));
+      console.log(survey.data.question2);
+      post('/survey/sendsurvey', survey.data);
+
+  }
+
+  function post(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+  var survey = new Survey.Model(surveyJSON);
+  $("#surveyContainer").Survey({
+      model: survey,
+      onComplete: sendDataToServer
+  });
+  </script>
+</html>
