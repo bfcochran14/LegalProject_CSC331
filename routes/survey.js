@@ -15,7 +15,7 @@ function record_data(req, res, next) {
 
 	console.log(req.body);
 	surveyData.push(req.body); // Add the user data to the users_data dataset
-	res.redirect('/');	// reload the page
+	res.redirect('/doc/docpage');	// reload the page
 }
 //FUCK OFF
 module.exports = router;

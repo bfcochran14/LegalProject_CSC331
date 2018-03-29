@@ -3,17 +3,17 @@
   <head>
   	<!-- {{ title }} tells HJS to use variable title when
   		rendering this page -->
-    <title>{{ title }}</title>
+    <!-- <title>{{ title }}</title> -->
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-  	<h1>{{ title }}</h1>
+  	<h1>NDA</h1>
 
   	<!-- This can be turned into a menu easily -->
   	<ul>
-  		<li> Home </li>
-  		<!-- <li> <a href="/doc/docpage">DOC</a></li> -->
-      <li> <a href="/survey/surveypage">Survey</a></li>
+  		<li> HI BEN </li>
+
+      
   	</ul>
     <p></p>
   </body>
