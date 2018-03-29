@@ -16,24 +16,39 @@
 
 
     // variable names are "question#"
-  var surveyJSON = {pages:[{name:"Background",elements:[
-    {type:"text",name:"question2",title:"Last Name",isRequired:true},
-    {type:"text",name:"question1",title:"First name",isRequired:true},
-    {type:"text",name:"question3",title:"Email address",isRequired:true}]},
+    var surveyJSON = {pages:[{name:"Background",elements:[
+        {type:"text",name:"question2",title:"Last Name",isRequired:true},
+        {type:"text",name:"question1",title:"First name",isRequired:true},
+        {type:"text",name:"question3",title:"Email address",isRequired:true}]},
 
-    //*** May need to change the following name ***//
-    {name:"Disclosing Party Information",elements:[
-    {type:"text",name:"question5",title:"Disclosing Parties Name",isRequired:true},
-    {type:"radiogroup",name:"question4",title:"What type of Legal Entity is the Disclosing Party?",isRequired:true,choices:[
-        {value:"item1",text:"An individual"},
-        {value:"item2",text:"A limited liability company"},{value:"item3",text:"A corperation"},
-        {value:"item4",text:"A partnership"},{value:"item5",text:"A sole proprietorship "},
-        {value:"item6",text:"Another type od company not listed above"}]},
-    {type:"text",name:"question6",title:"In what state is the Disclosing party a resident?",isRequired:true},
-    {type:"dropdown",name:"question7",title:"Are you registered?",choices:[{value:"item1",text:"Yes"},
-    {value:"item2",text:"No"}]},
-    {type:"text",name:"question8",visible:false,visibleIf:"{question7}=item1",title:"What state?",isRequired:true}]}],
-    showProgressBar:"bottom"}
+        {name:"Disclosing Party Information",elements:[
+          {type:"text",name:"question5",title:"Disclosing Parties Name",isRequired:true},
+          {type:"radiogroup",name:"question4",title:"What type of Legal Entity is the Disclosing Party?",isRequired:true,choices:[{value:"item1",text:"An individual"},{value:"item2",text:"A limited liability company"},{value:"item3",text:"A corperation"},{value:"item4",text:"A partnership"},{value:"item5",text:"A sole proprietorship "},{value:"item6",text:"Another type od company not listed above"}]},
+          {type:"dropdown",name:"question6",title:"What state?",isRequired:true,choices:[
+            {value:"item1",text:"Alabama"},{value:"item2",text:"Alaska"},{value:"item3",text:"Arizona"},
+            {value:"item4",text:"Arkansas"},{value:"item5",text:"California"},
+            {value:"item6",text:"Colorado"},{value:"item7",text:"Connecticut"},
+            {value:"item8",text:"Delaware"},{value:"item9",text:"Florida"},{value:"item10",text:"Georgia"},
+            {value:"item11",text:"Hawaii"},{value:"item12",text:"Idaho"},{value:"item13",text:"Illinois"},
+            {value:"item14",text:"Indiana"},{value:"item15",text:"Iowa"},
+            {value:"item16",text:"Kansas"},{value:"item17",text:"Kentucky"},
+            {value:"item18",text:"Louisiana"},{value:"item19",text:"Maine"},{value:"item20",text:"Maryland"},
+            {value:"item21",text:"Massachusetts"},{value:"item22",text:"Michigan"},
+            {value:"item23",text:"Minnesota"},{value:"item24",text:"Mississippi"},
+            {value:"item25",text:"Missouri"},{value:"item26",text:"Montana"},
+            {value:"item27",text:"Nebraska"},{value:"item28",text:"Nevada"},{value:"item29",text:"New Hampshire"},
+            {value:"item30",text:"New Jersey"},{value:"item31",text:"New Mexico"},
+            {value:"item32",text:"New York"},{value:"item33",text:"North Carolina"},{value:"item34",text:"North Dakota"},
+            {value:"item35",text:"Ohio"},{value:"item36",text:"Oklahoma"},{value:"item37",text:"Oregon"},
+            {value:"item38",text:"Pennsylvania"},{value:"item39",text:"Rhode Island"},
+            {value:"item40",text:"South Carolina"},{value:"item41",text:"South Dakota"},
+            {value:"item42",text:"Tennessee"},{value:"item43",text:"Texas"},{value:"item44",text:"Utah"},
+            {value:"item45",text:"Vermont"},{value:"item46",text:"Virginia"},{value:"item47",text:"Washington"},
+            {value:"item48",text:"West Virginia"},{value:"item49",text:"Wisconsin"},
+            {value:"item50",text:"Wyoming"},{value:"item51",text:"Puerto Rico"},{value:"item52",text:"District of Columbia"}]},
+          {type:"dropdown",name:"question7",title:"Registered?",choices:[{value:"item1",text:"Yes"},{value:"item2",text:"No"}]},
+          {type:"text",name:"question8",visible:false,visibleIf:"{question7}=item1",title:"What state?",isRequired:true}]}],showProgressBar:"bottom"}
+
 
   function sendDataToServer(survey) {
       //send Ajax request to your web server.
