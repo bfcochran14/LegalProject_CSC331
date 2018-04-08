@@ -10,14 +10,14 @@
   	<h1>{{ title }}</h1>
 
   	<!-- This can be turned into a menu easily -->
-  	<ul>
-  		<li> Home </li>
-  	   <li> <a href="/catalog/list">DOC</a></li>
-      <li> <a href="/survey/surveypage">Survey</a></li>
-       <li> <a href="/catalog/docs">All documents</a></li>
-       <li> <a href="/catalog/doc/create">add a document</a></li>
-
-  	</ul>
+    <div>
+    <h1>Current List</h1>
+     <ul>
+     {{#doc_list}}   <!-- Iterate over the array in users variable -->
+      <li>{{title}} {{customer}}</li>  <!-- fields in the array entry -->
+     {{/doc_list}}	<!-- end of loop -->
+    </ul>
+    </div>
     <p></p>
   </body>
 </html>

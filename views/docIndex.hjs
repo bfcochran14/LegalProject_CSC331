@@ -12,11 +12,8 @@
   	<!-- This can be turned into a menu easily -->
   	<ul>
   		<li> Home </li>
-  	   <li> <a href="/catalog/list">DOC</a></li>
-      <li> <a href="/survey/surveypage">Survey</a></li>
-       <li> <a href="/catalog/docs">All documents</a></li>
-       <li> <a href="/catalog/doc/create">add a document</a></li>
-
+      <li>Documents {{data.doc_count}}</li>
+      <li>Customers {{data.customer_count}}</li>
   	</ul>
     <p></p>
   </body>

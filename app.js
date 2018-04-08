@@ -7,8 +7,9 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 //var users = require('./routes/users');
-var survey = require('./routes/survey');
-var doc = require('./routes/doc');
+ var survey = require('./routes/survey');
+// var doc = require('./routes/doc');
+var catalog = require("./routes/catalog");
 
 var app = express();
 
@@ -26,8 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 //app.use('/users', users);
-app.use('/survey', survey);
-app.use('/doc', doc)
+app.use('/catalog', catalog);
+// app.use('/survey', survey);
+// app.use('/doc', doc)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,6 +37,18 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+var mongoose = require('mongoose');
+//Set up default mongoose connection
+var mongoDB = 'mongodb://makenzie:admin@ds237979.mlab.com:37979/ndadocument';
+
+mongoose.connect(mongoDB);
+// Get Mongoose to use the global promise library
+mongoose.Promise = global.Promise;
+//Get the default connection
+var db = mongoose.connection;mongodb://<dbuser>:<dbpassword>@ds237979.mlab.com:37979/ndadocument
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // error handler
 app.use(function(err, req, res, next) {
