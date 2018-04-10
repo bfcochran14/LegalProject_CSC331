@@ -28,7 +28,7 @@ function record_data(req, res, next) {
 		console.log('inside collection function')
     	if (err) return console.log(err)
     	console.log('saved to database')
-    	res.redirect('/doc/docpage')
+    	res.redirect('/')
   	})
 }
 //FUCK OFF
