@@ -1,7 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var MongoCLient = require('mongodb').MongoCLient;
+
 
 var surveyData = require('../models/surveyData');
+
+var db;
+const url = 'mongodb://​ben​:​admin​@ds237979.mlab.com:37979/ndadocument';
+
+MongoCLient.connect(url, function(err, client){
+	if (err) return console.log(err)
+  	db = client.db('ndadocument') // whatever your database name is
+})
 
 /* GET survey page. */
 router.get('/surveypage', function(req, res, next) {
@@ -12,10 +22,14 @@ router.get('/surveypage', function(req, res, next) {
 router.post('/sendsurvey', record_data);
 
 function record_data(req, res, next) {
-
-	console.log(req.body);
-	surveyData.push(req.body); // Add the user data to the users_data dataset
-	res.redirect('/doc/docpage');	// reload the page
+	console.log(req.body); // show in the console what the user entered
+	console.log("post recieved")
+	db.collection('nda').save(req.body, (err, result) => {
+		console.log('inside collection function')
+    	if (err) return console.log(err)
+    	console.log('saved to database')
+    	res.redirect('/users/doc/docpage')
+  	})
 }
 //FUCK OFF
 module.exports = router;

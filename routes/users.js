@@ -29,10 +29,17 @@ function index(req, res, next) {
   	);
 }
 
-function record_data(req, res, next) {
+/*function record_data(req, res, next) {
 	console.log(req.body); // show in the console what the user entered
 	usersModel.push(req.body); // Add the user data to the users_data dataset
 	res.redirect('/users/addcharacter');	// reload the page
+}*/
+
+function record_data(req, res, next) {
+	console.log(req.body); // show in the console what the user entered
+	console.log("post recieved")
+    	res.redirect('/users/addcharacter')
+  	}
 }
 
 // Export the router, required in app.js
