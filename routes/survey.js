@@ -6,7 +6,10 @@ var MongoClient = require('mongodb').MongoClient;
 var surveyData = require('../models/surveyData');
 
 var db;
+<<<<<<< HEAD
 //const url = 'mongodb://​makenzie:​admin​@ds237979.mlab.com:37979/ndadocument';
+=======
+>>>>>>> 6a06b46f15eb0e2662286504967e826bf1dd9874
 const url = 'mongodb://ben:admin@ds237979.mlab.com:37979/ndadocument';
 
 MongoClient.connect(url, function(err, client){
@@ -29,7 +32,11 @@ function record_data(req, res, next) {
 		console.log('inside collection function')
     	if (err) return console.log(err)
     	console.log('saved to database')
+<<<<<<< HEAD
     	res.redirect('/doc/docpage')
+=======
+    	res.redirect('/')
+>>>>>>> 6a06b46f15eb0e2662286504967e826bf1dd9874
   	})
 }
 //FUCK OFF

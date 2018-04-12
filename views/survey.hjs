@@ -60,4 +60,12 @@
       onComplete: sendDataToServer
   });
   </script>
+
+  <button id="myButton" class="float-left submit-button" >Contact Us</button>
+
+      <script type="text/javascript">
+          document.getElementById("myButton").onclick = function () {
+             location.href = "https://www.erdosiplaw.com/what-brings-you-here";
+         };
+      </script>
 </html>
