@@ -30,11 +30,11 @@ function record_data(req, res, next) {
 		console.log('inside collection function')
     	if (err) return console.log(err)
     	console.log('saved to database')
-<<<<<<< HEAD
+
     	res.redirect('/doc/docpage')
-=======
+
     	res.redirect('/')
->>>>>>> 6a06b46f15eb0e2662286504967e826bf1dd9874
+
   	})
 }
 //FUCK OFF
