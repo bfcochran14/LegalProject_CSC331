@@ -8,8 +8,6 @@ var surveyData = require('../models/surveyData');
 var db;
 <<<<<<< HEAD
 //const url = 'mongodb://​makenzie:​admin​@ds237979.mlab.com:37979/ndadocument';
-=======
->>>>>>> 6a06b46f15eb0e2662286504967e826bf1dd9874
 const url = 'mongodb://ben:admin@ds237979.mlab.com:37979/ndadocument';
 
 MongoClient.connect(url, function(err, client){
