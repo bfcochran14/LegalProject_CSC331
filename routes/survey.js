@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 var surveyData = require('../models/surveyData');
 
 var db;
-<<<<<<< HEAD
+
 //const url = 'mongodb://​makenzie:​admin​@ds237979.mlab.com:37979/ndadocument';
 const url = 'mongodb://ben:admin@ds237979.mlab.com:37979/ndadocument';
 
